@@ -1,18 +1,20 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconExtractor", "IconExtractor\IconExtractor.csproj", "{13A2DBBF-17BD-47FB-9D73-CCAF9EE76B83}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconExtractor", "IconExtractor\IconExtractor.csproj", "{35E735E1-A9A2-4099-81A0-58E7BB830560}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x86 = Debug|x86
-		Release|x86 = Release|x86
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{13A2DBBF-17BD-47FB-9D73-CCAF9EE76B83}.Debug|x86.ActiveCfg = Debug|x86
-		{13A2DBBF-17BD-47FB-9D73-CCAF9EE76B83}.Debug|x86.Build.0 = Debug|x86
-		{13A2DBBF-17BD-47FB-9D73-CCAF9EE76B83}.Release|x86.ActiveCfg = Release|x86
-		{13A2DBBF-17BD-47FB-9D73-CCAF9EE76B83}.Release|x86.Build.0 = Release|x86
+		{35E735E1-A9A2-4099-81A0-58E7BB830560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35E735E1-A9A2-4099-81A0-58E7BB830560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35E735E1-A9A2-4099-81A0-58E7BB830560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35E735E1-A9A2-4099-81A0-58E7BB830560}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

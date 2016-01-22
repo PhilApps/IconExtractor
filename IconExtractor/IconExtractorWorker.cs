@@ -24,7 +24,7 @@ namespace IconExtractor
 	/// <summary>
 	/// Creates a new instance of the IconExtractor class.
 	/// </summary>
-	public sealed class IconExtractor : IDisposable
+	sealed class IconExtractorWorker : IDisposable
 	{
 		[DllImport("Shell32.dll", CharSet = CharSet.Auto, SetLastError = true)]
 		static extern int ExtractIconEx(string fileName, int iconStartingIndex, IntPtr[] largeIcons, IntPtr[] smallIcons, int iconCount);
@@ -39,7 +39,7 @@ namespace IconExtractor
 		/// </summary>
 		/// <param name="source">The full path to the file containing icons.</param>
 		/// <param name="size">An IconSize value indicating whether to retreive 16x16 or 32x32 icons.</param>
-		public IconExtractor(string source, IconSize size)
+		public IconExtractorWorker(string source, IconSize size)
 		{
 			IconSource = source;
 			IntPtr[] nullPtr = null;
