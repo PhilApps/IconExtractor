@@ -23,6 +23,7 @@ namespace IconExtractor
         public MainWindow()
         {
             InitializeComponent();
+            //System.Windows.Interop.Imaging.CreateBitmapSourceFromHIcon()
         }
     }
 }
