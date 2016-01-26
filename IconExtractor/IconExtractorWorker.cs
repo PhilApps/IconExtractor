@@ -15,10 +15,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using IconExtractor.PhilUtils;
 using static IconExtractor.CommonExceptions;
+using static IconExtractor.PhilUtils.Utils;
 
 namespace IconExtractor
 {
-    sealed class IconExtractorWorker : DispatcherObject
+    sealed class IconExtractorWorker
     {
         [DllImport("Shell32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         static extern int ExtractIconEx(string fileName, int iconStartingIndex, IntPtr[] largeIcons, IntPtr[] smallIcons, int iconCount);
@@ -32,8 +33,17 @@ namespace IconExtractor
         static readonly Lazy<FileInfoComparer> _lazyFileInfoComparer =
             new Lazy<FileInfoComparer>(() => new FileInfoComparer());
 
+        private sealed class DispatcherHolder : DispatcherObject
+        {
+            readonly IconExtractorWorker _parent;
+            internal DispatcherHolder(IconExtractorWorker parent) { _parent = parent; }
+        }
+
+        readonly DispatcherHolder _dispatcherHolder;
+
         internal IconExtractorWorker()
         {
+            _dispatcherHolder = new DispatcherHolder(this);
             _extractedIcons = new SortedList<FileInfo, IReadOnlyCollection<BitmapSource>>(_lazyFileInfoComparer.Value);
             ExtractedIcons = new ReadOnlyDictionary<FileInfo, IReadOnlyCollection<BitmapSource>>(_extractedIcons);
         }
