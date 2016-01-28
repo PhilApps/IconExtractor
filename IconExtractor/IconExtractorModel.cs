@@ -115,7 +115,7 @@ namespace IconExtractor
 
         private IReadOnlyDictionary<FileInfo, IReadOnlyCollection<BitmapSource>> GetIcons(CancellationToken canceltoken, IProgress<double> progress, DirectoryInfo parentDir, SearchOption searchOption)
         {
-            IReadOnlyDictionary<FileInfo, IReadOnlyCollection<BitmapSource>> valRet =
+            IDictionary<FileInfo, IReadOnlyCollection<BitmapSource>> valRet =
                 new SortedList<FileInfo, IReadOnlyCollection<BitmapSource>>(_lazyFileInfoComparer.Value);
             progress?.Report(0.0);
             FileInfo[] files = parentDir.EnumerateFilesSafe(searchOption: searchOption).ToArray();
@@ -140,6 +140,7 @@ namespace IconExtractor
                         IReadOnlyCollection<BitmapSource> bitmaps = Array.AsReadOnly(handles
                             .Select(h => Imaging.CreateBitmapSourceFromHIcon(h, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions()))
                             .ToArray());
+                        valRet.Add(fi, bitmaps);
                     }
                     finally
                     {
@@ -154,7 +155,7 @@ namespace IconExtractor
 
             progress?.Report(1.0);
 
-            return valRet;
+            return new ReadOnlyDictionary<FileInfo, IReadOnlyCollection<BitmapSource>>(valRet);
         }
     }
 
