@@ -61,7 +61,7 @@ namespace IconExtractor
                 if (!_lazyDirectoryInfoComparer.Value.Equals(newDir, oldDir))
                 {
                     _folder = value;
-                    RaisePropertyChanged(nameof(_folder));
+                    RaisePropertyChanged(nameof(Folder));
                 }
             }
         }
@@ -121,7 +121,7 @@ namespace IconExtractor
             FileInfo[] files = parentDir.EnumerateFilesSafe(searchOption: searchOption).ToArray();
 
             double current = 0.0;
-            foreach(FileInfo fi in files)
+            foreach (FileInfo fi in files)
             {
                 IntPtr[] handles = null;
                 try
@@ -138,6 +138,7 @@ namespace IconExtractor
                     try
                     {
                         IReadOnlyCollection<BitmapSource> bitmaps = Array.AsReadOnly(handles
+                            .Where(h => h != IntPtr.Zero)
                             .Select(h => Imaging.CreateBitmapSourceFromHIcon(h, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions()))
                             .ToArray());
                         valRet.Add(fi, bitmaps);
@@ -147,7 +148,7 @@ namespace IconExtractor
                         foreach (IntPtr h in handles) DestroyIcon(h);
                     }
                 }
-                
+
                 current = current + 1.0;
                 progress?.Report(current / files.Length);
                 canceltoken.ThrowIfCancellationRequested();

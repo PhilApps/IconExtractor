@@ -17,7 +17,6 @@
 				<Button Content="Test" Click="Test_Click" />
 			</WrapPanel>
 		</StackPanel>
-		<WrapPanel Name="_testPanel" x:FieldModifier="private"
-				   HorizontalAlignment="Left" Height="200" Margin="81,76,0,0" VerticalAlignment="Top" Width="390"/>
+		<WrapPanel Name="_testPanel" x:FieldModifier="private" />
 	</DockPanel>
 </Window>

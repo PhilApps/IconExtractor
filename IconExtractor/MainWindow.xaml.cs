@@ -25,6 +25,7 @@ namespace IconExtractor
         public MainWindow()
         {
             InitializeComponent();
+            Model.Folder = "C:\\Windows\\System32";
         }
 
         private IconExtractorModel Model => (IconExtractorModel)DataContext;
@@ -36,8 +37,13 @@ namespace IconExtractor
                 var coll = await Model.GetIconsAsync(CancellationToken.None, null);
                 foreach (var icon in coll.Values.SelectMany(c => c))
                 {
-                    _testPanel.Children.Add(new Image() { Source = icon });
+                    Image img = new Image();
+                    img.BeginInit();
+                    img.Source = icon;
+                    img.EndInit();
+                    _testPanel.Children.Add(img);
                 }
+                this.MsgBoxInfo("OK!");
             }
             catch (Exception exc)
             {
