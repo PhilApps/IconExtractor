@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:IconExtractor"
         mc:Ignorable="d"
         Title="Icon Extractor" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+	<Window.DataContext>
+		<local:IconExtractorModel />
+	</Window.DataContext>
+	<DockPanel>
+		<StackPanel DockPanel.Dock="Top">
+			<WrapPanel>
+				<Label Content="Path" />
+				<TextBox Margin="2" MinWidth="300" Text="{Binding Folder}" />
+				<Button Content="Test" Click="Test_Click" />
+			</WrapPanel>
+		</StackPanel>
+		<WrapPanel Name="_testPanel" x:FieldModifier="private"
+				   HorizontalAlignment="Left" Height="200" Margin="81,76,0,0" VerticalAlignment="Top" Width="390"/>
+	</DockPanel>
 </Window>

@@ -59,6 +59,8 @@
     <Compile Include="CommonExceptions.cs" />
     <Compile Include="PhilUtils\DirectoriesEnumerationHelper.cs" />
     <Compile Include="PhilUtils\DirectoryInfoComparer.cs" />
+    <Compile Include="PhilUtils\SpinLockHelper.cs" />
+    <Compile Include="PhilUtils\WPFMessageBoxHelper.cs" />
     <Compile Include="ResErrors.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

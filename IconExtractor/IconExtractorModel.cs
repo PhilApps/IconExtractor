@@ -15,9 +15,9 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
-using IconExtractor.PhilUtils;
+using PhilUtils;
 using static IconExtractor.CommonExceptions;
-using static IconExtractor.PhilUtils.Utils;
+using static PhilUtils.Utils;
 
 namespace IconExtractor
 {

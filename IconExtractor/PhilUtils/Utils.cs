@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IconExtractor.PhilUtils
+namespace PhilUtils
 {
     /// <summary>
     /// Divers utilitaires V1.1

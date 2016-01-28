@@ -6,7 +6,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IconExtractor.PhilUtils
+namespace PhilUtils
 {
 	/// <summary>
 	/// <para>Permet d'énumérer des dossiers et fichiers avec gestion d'erreur.</para>
