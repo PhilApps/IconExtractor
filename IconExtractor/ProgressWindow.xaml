@@ -5,10 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IconExtractor"
         mc:Ignorable="d"
-        Title="Progress" Height="103.448" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
-	<Grid>
-		<ProgressBar Name="_prgrBar" x:FieldModifier="private" HorizontalAlignment="Left" Height="25" Margin="10,16,0,0" VerticalAlignment="Top" Width="272" Maximum="1" LargeChange="0.1" SmallChange="0.01"/>
-		<Button x:Name="_btnCancel" Content="Cancel"
-				Margin="109,46,108,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="75" Click="_btnCancel_Click"/>
-	</Grid>
+        Title="Progress" Height="110" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
+	<DockPanel>
+		<Grid DockPanel.Dock="Top">
+			<ProgressBar Name="_prgrBar" Height="20" x:FieldModifier="private" Margin="5"
+						 Maximum="1" LargeChange="0.1" SmallChange="0.01"/>
+		</Grid>
+		<Grid>
+			<Button x:Name="_btnCancel" Content="Cancel"
+				VerticalAlignment="Center" HorizontalAlignment="Center" Width="75" Height="20" Click="_btnCancel_Click"/>
+		</Grid>
+	</DockPanel>
 </Window>
