@@ -17,7 +17,9 @@
 				<Button Content="Test" Click="Test_Click" />
 			</WrapPanel>
 		</StackPanel>
-		<StackPanel Name="_testPanel" x:FieldModifier="private" ScrollViewer.VerticalScrollBarVisibility="Auto">
-		</StackPanel>
+		<ScrollViewer VerticalScrollBarVisibility="Auto">
+			<StackPanel Name="_testPanel" x:FieldModifier="private">
+			</StackPanel>
+		</ScrollViewer>
 	</DockPanel>
 </Window>

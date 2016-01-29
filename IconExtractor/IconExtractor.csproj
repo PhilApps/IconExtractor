@@ -62,6 +62,9 @@
     <Compile Include="PhilUtils\DirectoryInfoComparer.cs" />
     <Compile Include="PhilUtils\SpinLockHelper.cs" />
     <Compile Include="PhilUtils\WPFMessageBoxHelper.cs" />
+    <Compile Include="ProgressWindow.xaml.cs">
+      <DependentUpon>ProgressWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ResErrors.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,11 +79,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IconExtractorModel.cs" />
-    <Compile Include="IconExtractorWorkerOld.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ProgressWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PhilUtils\FileInfoComparer.cs" />

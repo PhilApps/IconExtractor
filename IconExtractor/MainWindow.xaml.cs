@@ -36,7 +36,7 @@ namespace IconExtractor
 
             try
             {
-                var dictionary = await Model.GetIconsAsync(CancellationToken.None, null);
+                var dictionary = await ProgressWindow.Start(Model.GetIconsAsync, this);
 
                 foreach (var elt in dictionary.Where(el => el.Value.Any()))
                 {
@@ -62,6 +62,7 @@ namespace IconExtractor
 
                 this.MsgBoxInfo("OK!");
             }
+            catch (OperationCanceledException) { }
             catch (Exception exc)
             {
                 this.MsgBoxError(exc.Message);
