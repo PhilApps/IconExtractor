@@ -32,18 +32,34 @@ namespace IconExtractor
 
         private async void Test_Click(object sender, RoutedEventArgs e)
         {
+            _testPanel.Children.Clear();
+
             try
             {
-                var coll = await Model.GetIconsAsync(CancellationToken.None, null);
-                foreach (var icon in coll.Values.SelectMany(c => c))
+                var dictionary = await Model.GetIconsAsync(CancellationToken.None, null);
+
+                foreach (var elt in dictionary.Where(el => el.Value.Any()))
                 {
-                    Image img = new Image();
-                    img.BeginInit();
-                    img.Source = icon;
-                    img.Stretch = Stretch.None;
-                    img.EndInit();
-                    _testPanel.Children.Add(img);
+                    Expander newExpander = new Expander();
+                    WrapPanel newWrapPanel = new WrapPanel();
+
+                    newExpander.Header = elt.Key.FullName;
+                    newExpander.Content = newWrapPanel;
+
+                    foreach (var icon in elt.Value)
+                    {
+                        Image img = new Image();
+                        using (img.SetInitializing())
+                        {
+                            img.Source = icon;
+                            img.Stretch = Stretch.None;
+                        }
+                        newWrapPanel.Children.Add(img);
+                    }
+
+                    _testPanel.Children.Add(newExpander);
                 }
+
                 this.MsgBoxInfo("OK!");
             }
             catch (Exception exc)

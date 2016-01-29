@@ -57,6 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CommonExceptions.cs" />
+    <Compile Include="LocalUtils.cs" />
     <Compile Include="PhilUtils\DirectoriesEnumerationHelper.cs" />
     <Compile Include="PhilUtils\DirectoryInfoComparer.cs" />
     <Compile Include="PhilUtils\SpinLockHelper.cs" />
