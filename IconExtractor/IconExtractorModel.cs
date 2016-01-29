@@ -139,7 +139,7 @@ namespace IconExtractor
                     {
                         IReadOnlyCollection<BitmapSource> bitmaps = Array.AsReadOnly(handles
                             .Where(h => h != IntPtr.Zero)
-                            .Select(h => Imaging.CreateBitmapSourceFromHIcon(h, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions()))
+                            .Select(h => _dispatcherHolder.Dispatcher.InvokeAsync(() => Imaging.CreateBitmapSourceFromHIcon(h, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions())).Result)
                             .ToArray());
                         valRet.Add(fi, bitmaps);
                     }

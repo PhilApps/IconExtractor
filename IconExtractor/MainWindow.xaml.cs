@@ -40,6 +40,7 @@ namespace IconExtractor
                     Image img = new Image();
                     img.BeginInit();
                     img.Source = icon;
+                    img.Stretch = Stretch.None;
                     img.EndInit();
                     _testPanel.Children.Add(img);
                 }
