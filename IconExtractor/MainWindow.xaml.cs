@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PhilUtils.WPF;
+using Ookii.Dialogs.Wpf;
 
 namespace IconExtractor
 {
@@ -66,6 +67,20 @@ namespace IconExtractor
             catch (Exception exc)
             {
                 this.MsgBoxError(exc.Message);
+            }
+        }
+
+        private void ChooseFolder_Click(object sender, RoutedEventArgs e)
+        {
+            VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog()
+            {
+                Description = "Choose folder",
+                SelectedPath = Model.Folder,
+                UseDescriptionForTitle = true
+            };
+            if (dlg.ShowDialog(this).GetValueOrDefault())
+            {
+                Model.Folder = dlg.SelectedPath;
             }
         }
     }

@@ -5,16 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IconExtractor"
         mc:Ignorable="d"
-        Title="Icon Extractor" Height="480" Width="600" WindowStartupLocation="CenterScreen">
+        Title="Icon Extractor" Height="600" Width="800" WindowStartupLocation="CenterScreen">
 	<Window.DataContext>
 		<local:IconExtractorModel />
 	</Window.DataContext>
 	<DockPanel>
 		<StackPanel DockPanel.Dock="Top">
 			<WrapPanel>
+				<WrapPanel.Resources>
+					<Style TargetType="Button">
+						<Setter Property="Margin" Value="5,0,0,0" />
+						<Setter Property="MinWidth" Value="30" />
+					</Style>
+				</WrapPanel.Resources>
 				<Label Content="Path" />
 				<TextBox Margin="2" MinWidth="300" Text="{Binding Folder}" />
+				<Button Content="..." Click="ChooseFolder_Click" />
 				<Button Content="Test" Click="Test_Click" />
+				<CheckBox Content="Search in subfolders" IsChecked="{Binding SearchSubfolders}" VerticalAlignment="Center" Margin="5,0,0,0" />
 			</WrapPanel>
 		</StackPanel>
 		<ScrollViewer VerticalScrollBarVisibility="Auto">
